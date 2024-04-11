@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Máquina de Vendas</title>
+</head>
+<body>
+    <h1>Máquina de Vendas</h1>
+
+    <h2>Produtos:</h2>
+    <ul>
+        <li>
+            <span>Produto 1 - $1.00</span>
+            <button onclick="comprar(1, 1.00)">Comprar</button>
+        </li>
+        <li>
+            <span>Produto 2 - $2.00</span>
+            <button onclick="comprar(2, 2.00)">Comprar</button>
+        </li>
+        <li>
+            <span>Produto 3 - $3.00</span>
+            <button onclick="comprar(3, 3.00)">Comprar</button>
+        </li>
+    </ul>
+
+    <h2>Carrinho de Compras:</h2>
+    <ul id="carrinho">
+    </ul>
+
+    <h2>Total: $<span id="total">0.00</span></h2>
+
+    <script>
+        let carrinho = [];
+        let total = 0;
+
+        function comprar(id, preco) {
+            carrinho.push({ id, preco });
+            total += preco;
+
+            // Atualize a lista de produtos no carrinho e o total
+            const carrinhoLista = document.getElementById("carrinho");
+            const totalElement = document.getElementById("total");
+            carrinhoLista.innerHTML += `<li>Produto ${id} - $${preco.toFixed(2)}</li>`;
+            totalElement.textContent = total.toFixed(2);
+        }
+    </script>
+</body>
+</html>

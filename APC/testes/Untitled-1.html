@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Loja Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            max-width: 800px;
+        }
+        .product {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .product img {
+            width: 100px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Minha Loja Online</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Produtos</a>
+        <a href="#">Contato</a>
+    </nav>
+    <div class="container">
+        <div class="product" id="product1">
+            <div>
+                <h2>Produto 1</h2>
+                <p>R$ 50,00</p>
+                <button>Comprar</button>
+            </div>
+        </div>
+        <div class="product" id="product2">
+            <div>
+                <h2>Produto 2</h2>
+                <p>R$ 80,00</p>
+                <button>Comprar</button>
+            </div>
+        </div>
+        <!-- Adicione mais produtos conforme necessário -->
+    </div>
+    <footer>
+        <p>&copy; 2024 Minha Loja Online. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        // Array de links de imagens para os produtos
+        const productImages = [
+            "product1.jpg",
+            "product2.jpg",
+            // Adicione mais URLs conforme necessário
+        ];
+
+        // Função para carregar imagens dos produtos
+        function loadProductImages() {
+            const products = document.querySelectorAll('.product');
+            products.forEach((product, index) => {
+                const img = document.createElement('img');
+                img.src = productImages[index];
+                img.alt = `Produto ${index + 1}`;
+                img.width = 100;
+                img.style.marginRight = '20px';
+                product.prepend(img);
+            });
+        }
+
+        // Carregar as imagens dos produtos quando a página carregar
+        window.addEventListener('load', loadProductImages);
+    </script>
+</body>
+</html>
